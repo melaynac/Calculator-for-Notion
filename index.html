@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cute Pink Calculator</title>
+<style>
+    @font-face {
+        font-family: 'Note Book';
+        src: url('https://fonts.googleapis.com/css2?family=Note+Book&display=swap');
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fceff2; /* Light pink background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    .calculator {
+        background-color: #ff77aa; /* Pink calculator background */
+        border-radius: 20px; /* Rounded corners */
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        text-align: center;
+    }
+
+    .calculator-title {
+        font-family: 'Note Book', sans-serif; /* Use custom font */
+        font-size: 36px;
+        color: white; /* White text color */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+    
+    th {
+        background-color: #ff99cc; /* Light pink header */
+        border-top-left-radius: 15px; /* Rounded top left corner */
+        border-top-right-radius: 15px; /* Rounded top right corner */
+    }
+    
+    td {
+        background-color: #ffb3d9; /* Light pink cell */
+        border: 1px solid #ff99cc; /* Border color */
+    }
+</style>
+</head>
+<body>
+<div class="calculator">
+    <div class="calculator-title">calculator</div>
+    <table>
+        <tr>
+            <th colspan="4">Cute Pink Calculator</th>
+        </tr>
+        <tr>
+            <td colspan="4"><input type="text" id="display" disabled></td>
+        </tr>
+        <tr>
+            <td><button onclick="appendToDisplay('7')">7</button></td>
+            <td><button onclick="appendToDisplay('8')">8</button></td>
+            <td><button onclick="appendToDisplay('9')">9</button></td>
+            <td><button onclick="appendToDisplay('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="appendToDisplay('4')">4</button></td>
+            <td><button onclick="appendToDisplay('5')">5</button></td>
+            <td><button onclick="appendToDisplay('6')">6</button></td>
+            <td><button onclick="appendToDisplay('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="appendToDisplay('1')">1</button></td>
+            <td><button onclick="appendToDisplay('2')">2</button></td>
+            <td><button onclick="appendToDisplay('3')">3</button></td>
+            <td><button onclick="appendToDisplay('*')">*</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="appendToDisplay('0')">0</button></td>
+            <td><button onclick="appendToDisplay('.')">.</button></td>
+            <td><button onclick="clearDisplay()">C</button></td>
+            <td><button onclick="calculate()">=</button></td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function appendToDisplay(value) {
+        document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+        document.getElementById('display').value = '';
+    }
+
+    function calculate() {
+        try {
+            document.getElementById('display').value = eval(document.getElementById('display').value);
+        } catch(error) {
+            document.getElementById('display').value = 'Error';
+        }
+    }
+</script>
+</body>
+</html>
